@@ -123,24 +123,79 @@ A ballpark estimate is a rough, approximate guess about cost, time, or effort.
 A ballpark estimate tells stakeholders if something is going to take days, weeks, or months — not the exact number of hours.
 
 
+Where Do Estimates Come From?
+
+	All estimates are based on models of the problem. But before we get too deeply into the techniques of building models, we have to mention a basic estimating trick that always gives good answers: ask someone who's already done it. Before you get too committed to model building, cast around for someone who's been in a similar situation in the past.
+
+--
+
+Estimating Project Schedules.
+	This needn't be a paradox if you practice incremental development, repeating the following steps.
+		1. Check requirements
+		2. Analyze risk
+		3. Design, implement, integrate.
+		4. Validate with the users.
+
+
+Tip 19: Iterate the Schedule with the Code.
+	“Iterate the schedule with the code” = make your timeline a living, accurate thing driven by real engineering signals and automation. It turns scheduling from guesswork into an ongoing, measurable process that adapts as your codebase (and uncovered realities) evolve.
+
+
+What to Say When Asked for an Estimate.
+
+You say, "I'll get back to you."
+
+Example
+
+👎 At the coffee machine:
+Manager: “How long do you think adding that report feature will take?”
+Developer: “Eh, maybe 2 days?”
+→ A week later: Manager says “You said 2 days, why isn’t it done yet?”
+
+👍 Better:
+Developer: “I can’t really say without looking at the code. I’ll check and get back with a proper estimate.”
+→ Now the expectation is managed.
 
 
 
+===============================================================================================================================
 
 
 
+The Basic Tools.
+
+    Tip 20: Keep knowledge in Plain Text.
+
+    Examples
+        ✅ Good (Plain Text)
+
+        Source code (.java, .py, .c)
+
+        Configuration files (.properties, .yml, .json, .ini)
+
+        Documentation (.md, .txt, .rst)
+
+        SQL scripts (.sql)
+
+        Infrastructure as code (.tf, .yaml for Kubernetes)
+
+        ❌ Bad (Opaque/Binary)
+
+        Word docs (.docx) for specs (hard to diff/merge)
+
+        Excel sheets (.xls) for configuration (not transparent, easy to break)
+
+        Proprietary binary formats for data dumps (can’t grep/diff)
+
+        Closed tools where knowledge lives only in a GUI (no text to store in Git)
 
 
+The Power of Test
+    Since larger and slower aren't the most frequently requested features from users, why bother with plain text? Whar are the benefits?
 
-
-
-
-
-
-
-
-
-
+    1. Insurance against absolescence.
+    2. Leverage.
+    3. Easier testing.
 
 
 
