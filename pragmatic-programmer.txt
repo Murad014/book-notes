@@ -198,4 +198,9 @@ The Power of Test
     3. Easier testing.
 
 
+Shell Games
+	* If you do all work using GUIs, you are missing out on the full capabilities of your environment. You won't be able to automate common tasks, or use the full power of the tools avaulable to you. And you won't be able to combine your tools to create customized macro tools. A benefit of GUIs is WYSIWYG - what you see is what you get. The disadvantages is WYSIAYG - what you see is all you get.
+
+TIP 21
+	Use the Power of Command Shells.
 
