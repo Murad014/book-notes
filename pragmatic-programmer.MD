@@ -272,12 +272,11 @@ DbC is commong sense formalized:
 
 Example:
 	Without contract
-		``` 
 		public void withdraw(Account account, double amount) {
-		    // assumes account is valid, amount positive, and enough balance...
-		    account.setBalance(account.getBalance() - amount);
-		}
-		```
+    // assumes account is valid, amount positive, and enough balance...
+    account.setBalance(account.getBalance() - amount);
+}
+
 
 
 
