@@ -204,3 +204,37 @@ Shell Games
 TIP 21
 	Use the Power of Command Shells.
 
+
+
+Debugging Strategies
+	NOTE:
+		Bug Reproduction
+			No, our bugs aren't really multiplying (although some of them are probably old enough to do it legally). We're talking about a different kind of reproduction.
+			The best way to start fixing a bug is to make it reproducible. After all, if you can't reproduce it, how will you know if it is ever fixed?
+			But we want more than a bug that can be reproduced by following some long series of steps; we want a bug that can be reproduced with a single command. It's a lot harder to fuix a bug if you have to go through 15 steps to get to the point where the bug shows up.
+
+=========================================================================================================================================================
+
+PRAGMATIC PARANOIA.
+ Tip 30 - You can't write PERFECT SOFTWARE.
+
+If there's any doubt, we validate all information we're given. We use assertions to detect bad data. We check for consistency, put constraints on database columns, and generally feel pretty good about ourselves. 
+	BUT PRAGMATIC PROGRAMMERS TAKE THIS A STEP FURTHER. THEY DON'T TRUST THEMSELVES, EITHER. Knowing that no one writes PERFECT CODE, including themselves, Pragmatic Programmers code in defenses against their own mistakes. We describe the first defensive measure in Design by Contract: clients and suppliers must agree on rights and responsibilities.
+
+	Notes - Dead Programs Tell No Lies.
+		* Principle: Fail fast - stop program when error occur instead of continuing in an invalid state.
+		* Reason: A crash is visible and contained; silent bugs cause data corruption, security risks, hidden failures.
+		* Practices: 
+			* Validate inputs & invariants.
+			* Throw exception on unexpected conditions. 
+			* Log errors clearly before termination
+			* Use rollback/recovery mechanisms (e.g DB transactions)
+
+		* Mindset: Better no result than a wrong result.
+
+
+
+
+
+
+
