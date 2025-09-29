@@ -275,7 +275,8 @@ Example:
 ```public void withdraw(Account account, double amount) {
     // assumes account is valid, amount positive, and enough balance...
     account.setBalance(account.getBalance() - amount);
-}```
+}
+```
 
 
 
