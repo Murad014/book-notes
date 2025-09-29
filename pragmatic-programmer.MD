@@ -279,6 +279,22 @@ public void withdraw(Account account, double amount) {
 }
 ```
 
+With Design by Contract 
+
+```
+public void withdraw(Account account, double amount) {
+    assert account != null : "Account must not be null";
+    assert amount > 0 : "Amount must be positive";
+    assert account.getBalance() >= amount : "Insufficient funds";
+
+    double oldBalance = account.getBalance();
+    account.setBalance(oldBalance - amount);
+
+    assert account.getBalance() == oldBalance - amount : "Postcondition failed";
+}
+
+```
+
 
 
 
