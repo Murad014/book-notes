@@ -221,7 +221,7 @@ PRAGMATIC PARANOIA.
 If there's any doubt, we validate all information we're given. We use assertions to detect bad data. We check for consistency, put constraints on database columns, and generally feel pretty good about ourselves. 
 	BUT PRAGMATIC PROGRAMMERS TAKE THIS A STEP FURTHER. THEY DON'T TRUST THEMSELVES, EITHER. Knowing that no one writes PERFECT CODE, including themselves, Pragmatic Programmers code in defenses against their own mistakes. We describe the first defensive measure in Design by Contract: clients and suppliers must agree on rights and responsibilities.
 
-	Notes - Dead Programs Tell No Lies.
+1.	Notes - Dead Programs Tell No Lies.
 		* Principle: Fail fast - stop program when error occur instead of continuing in an invalid state.
 		* Reason: A crash is visible and contained; silent bugs cause data corruption, security risks, hidden failures.
 		* Practices: 
@@ -232,9 +232,52 @@ If there's any doubt, we validate all information we're given. We use assertions
 
 		* Mindset: Better no result than a wrong result.
 
+2. Assertive Programming - describes an easy method of checking along the way - write code that actively verifies your assumptions.
+	Assertive Programming = don't just assume your code is correct - make your codde check its own assumpltions as it runs.
+	For example: 
+		* If you assume a list is never empty -> assert it
+	This way, if reality doesn't match your assumptions, the program fails immediately instead of quietly producing wrong result.
 
 
+	Notes for your Notebook
+		* Assertive Programming = check assumptions explicity with assertions.
+		* Purpose: catch bugs early, fail fast, self-documented expectations.
+		* Use for: preconditions, postconditions, invariants
+		* Don't assume -> assert!
 
+----------------------------------------------------------------------------------------------------------------------
+
+When everybody actually is out to get you, paranoia is just good thinking
+														-> Woody Allen
+
+What does it mean? 
+If danger is real, caution isn't paranoia - it's smart thinking.
+	We have learned:
+		1. Don't trust your code, your assumptions, or even your own inputs.
+		2. If bugs, bad data, and user mistakes will happen, then being "paranoid" - adding checks, assertions, and defensive code - isn't crazy. IT'S JUST GOOD ENGINEERING.
+
+=================================================================================================================================================
+																					DESIGN BY CONTRACT
+													Nothing astonishes men so much as common sense and plain dealing. - Ralph Waldo Emerson
+
+One of the best solutions for ensuring plain dealing is the CONTRACT - A Contract defines your rights and responsibilities, as well as those of the other party. 
+
+DbC is commong sense formalized:
+	* DbC is common sense formalized:
+		* Caller promises preconditions (e.g amount > 0).
+		* Method promises postconditions (e.g balance increases).
+		* System enforces invariants (e.g total debits == total credits).
+	* This "plain dealing" is just being explicit about what's expected and what's guaranteed.
+	* Instead of "trust me, it works," DbC is like a contract you can't ignore.
+
+Example:
+	Without contract
+		``` 
+		public void withdraw(Account account, double amount) {
+		    // assumes account is valid, amount positive, and enough balance...
+		    account.setBalance(account.getBalance() - amount);
+		}
+		```
 
 
 
