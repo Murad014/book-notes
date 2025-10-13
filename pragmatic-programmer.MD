@@ -256,7 +256,8 @@ If danger is real, caution isn't paranoia - it's smart thinking.
 		1. Don't trust your code, your assumptions, or even your own inputs.
 		2. If bugs, bad data, and user mistakes will happen, then being "paranoid" - adding checks, assertions, and defensive code - isn't crazy. IT'S JUST GOOD ENGINEERING.
 
-=================================================================================================================================================
+===============================================================================================================================================================
+
 																					DESIGN BY CONTRACT
 													Nothing astonishes men so much as common sense and plain dealing. - Ralph Waldo Emerson
 
@@ -292,9 +293,69 @@ public void withdraw(Account account, double amount) {
 
     assert account.getBalance() == oldBalance - amount : "Postcondition failed";
 }
-
 ```
 
+================================================================================================
+
+			Loop Invariants
+
+A loop invariant is a logical statement that is always true:
+	* Before the loop starts.
+	* During every iteration of the loop.
+	* When the loop ends.
+
+It's like a mini contract for your loop - describing what must always hold ture, even while the loop is in progress.
+
+Example: Finding the Maximum in an Array.
+
+```
+int m = arr[0];      // assume arr.length > 0
+int i = 1;
+
+// Loop invariant: m = max(arr[0 : i-1])
+while (i < arr.length) {
+    m = Math.max(m, arr[i]);
+    i = i + 1;
+}
+```
+
+1. Before loop starts:
+	* m = arr[0];
+	* i = 1
+	* INVARIANT says: "m" is the max of all elements from arr[0] up to i.
+	* So m = max(arr[0:0]) => TRUE
+
+------------------------------------------------------------------------------------------------
+
+												SEMANTIC INVARIANTS
+1. They Are fundamental truths about a system - rules that must never be broken unders any circumstances.
+2. They act like PHILOSOPHICAL CONTRACTS: higher-level guarantees that guide design decisions.
+3. They differ from business policies (which can change), because semantic invariants are permanent and central to the meaning of the system.
+
+Example: Debit Card Transaction System.
+	1. Requirement: A user must never be charged twice for the same transaction.
+	2. Why? Because duplicate charges would break trust and create financial harm.
+	3. So, the system is designed with this invariant in mind
+
+Difference Between Policy and Semantic Invariant
+1. Policy: Rules that can change(ATM withdrawals are limited to 500 dollar in a day - management can update this.
+2. Semantic Invariant: Rules that must always hold.
 
 
+Tip 35: Finish What You Start.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																	BEND, OR BREAK
+In Reversibility, we talked about the perils of irreversible decisions. In this chapter, we'll tell you how to make reversible decisions. In this chapter, we'll tell tou how to make reversible decisions, so your code can stay flexible and adaptable in the face of an uncertain world.
+
+First we need to look at coupling - the dependencies among modules of code. In decoupling and the Law of Demeter we'll show how to keep separate concepts separate, and decrease coupling.
+
+A key concept in creating flexible code is the separation of a data model from a view, or presentation, of that model. We'll decouple models fron views in It's Just A View.
+
+Finally, there’s a technique for decoupling modules even further by providing a meeting place where modules can exchange data anonymously and asynchronously. This is the topic of Blackboards.
+Armed with these techniques, you can write code that will “roll with the punches.”
+
+
+```
+The Law of Demeter, also known as the principle of least knowledge, is a software design guideline that states an object should only communicate with its immediate "friends" and not with "strangers". This means an object should only call methods on itself, objects passed in as arguments, any objects it creates, or its direct component objects. The core idea is to reduce coupling between classes, making code easier to test, refactor, and maintain. 
+```
 
