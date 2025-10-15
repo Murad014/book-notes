@@ -359,3 +359,37 @@ Armed with these techniques, you can write code that will “roll with the punch
 The Law of Demeter, also known as the principle of least knowledge, is a software design guideline that states an object should only communicate with its immediate "friends" and not with "strangers". This means an object should only call methods on itself, objects passed in as arguments, any objects it creates, or its direct component objects. The core idea is to reduce coupling between classes, making code easier to test, refactor, and maintain. 
 ```
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+																			Decoupling and the Law of Demeter.
+Good fences make good neighbors.
+
+In Orthogonality, page 34, and Design By Contract, page 109, we suggested that writting "shy" code is beneficial. But "shy" works two ways: 
+	1. Don't reveal yourself to others
+	2. Don't interact with too many people.
+
+-----
+
+The Law Of Demeter for Functions
+
+The Law of Demeter for functions attempts to minimize coupling between modules in any given program. It tries to prevent you from reaching into an object to gain access to a third objecct's methods.
+By writing "shy" code that honors the Law Of Demeter as much as possible, we can achieve our objective:
+	
+	Tip 36: Minimize Coupling Between Modules
+
+====================================================================================================================
+																Metadata-Driven Applications
+Put Abstractions in Code, Details in Metadata.
+
+There are several benefits to this approach:
+	1. It forces you to decouple your design, which results in a more flexible and adaptable program.
+	2. It forces you to create a more robust, abstract design be deferring details - deferring them all the way out of the program.
+	3. You can customize the application without recompiling it. You can also use this level of customization to provide easy work-arounds for critical bugs in live production systems.
+	4. You may even be able to implement several differen projects using the same application engine, but with different metadata.
+
+
+DON'T WRITE DODO-CODE
+Without metadata, your code is not as adaptable or flexible as it could be. Is this a bad thing? Well, out here in the real world, species that don't adapt die. 
+
+The dodo didn't adapt to the presence of humans and their livestock on the island of Mauritius, and quickly became extinct. It was the first documented extinction of a species at the hand of man.
+DON'T LET YOUR PROJECT (OR YOUR CAREER) GO THE WAY OF THE DODO.
